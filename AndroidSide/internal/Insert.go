@@ -39,8 +39,6 @@ func InsertContact(contact sqlite.Contacts) error {
 	if err != nil {
 		return fmt.Errorf("erro ao buscar raw_contact_id: %w", err)
 	}
-	log.Println("raw_contact criado", string(out))
-
 	extractId := extractContactId(string(out))
 
 	if extractId == "" {
