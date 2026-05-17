@@ -11,7 +11,7 @@ import (
 )
 
 func ListenContacts() {
-	log.Println("Esperando Mensagens")
+	log.Println("Redis Conectado e Escutando...")
 	lastId := "0"
 
 	for {

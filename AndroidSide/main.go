@@ -12,12 +12,12 @@ func main() {
 
 	redis.InitRedis()
 
-	fmt.Println("Monitorando o ZAPZAP....")
+	fmt.Println("Monitorando....")
 
 	go redis.ListenContacts()
 
 	for contato := range chanel {
-		fmt.Printf("Mensagem Detectada : %s do : %s numero: %s ",
+		fmt.Printf("Mensagem Detectada: %s; DE: %s; Número: %s ",
 			contato.Message, contato.Nome, contato.Number)
 		redis.PublishWithRetry(contato, 5)
 	}

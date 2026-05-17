@@ -31,9 +31,6 @@ func WatchMessagesDb(ch chan<- *Contacts) {
 	if err != nil {
 		log.Fatal("erro ao buscar maxId inicial:", err)
 	}
-
-	log.Println("Iniciando watch a partir do ID:", lastId)
-
 	for {
 		rows, err := db.Query(QueryLastMessage(), lastId)
 		if err != nil {
